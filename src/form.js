@@ -17,9 +17,9 @@ function Forms() {
     emailjs
       .sendForm(
         "gmail",
-        "template_0vlz6hx",
+        "template_hb9qmr9",
         e.target,
-        "user_99ogBoikg8ImrHb1RSNcB"
+        "user_SEoZ3jhZmvmc7W9yRaSnR"
       )
       .then(
         (result) => {
@@ -41,9 +41,9 @@ function Forms() {
     emailjs
       .sendForm(
         "gmail",
-        "template_0vlz6hx",
+        "template_hb9qmr9",
         e.target,
-        "user_99ogBoikg8ImrHb1RSNcB"
+        "user_SEoZ3jhZmvmc7W9yRaSnR"
       )
       .then(
         (result) => {
