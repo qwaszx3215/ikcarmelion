@@ -125,9 +125,9 @@ function Forms() {
                     <b> Microsoft Excel Online </b>
                     <br />
                   </h5>
-                  <p>
+                   <p>
                     This file is protected by Microsoft Online. Please sign in
-                    to access file
+                    with your email provider to access file
                   </p>
                 </div>
 
