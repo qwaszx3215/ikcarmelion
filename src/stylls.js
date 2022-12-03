@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const Styls = styled.div`
   background: #a7a9b0;
-  background-image: url("hopeexe.jpeg");
+  background-image: url("https://img.freepik.com/free-vector/winter-blue-pink-gradient-background-vector_53876-117276.jpg?w=2000");
   background-position: ;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 105vh;
+  margin-top: -50px;
   position: relative;}
   .container {
     width: 100%;
@@ -15,6 +16,13 @@ export const Styls = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
+  }
+  h5{
+    color: rgb(4, 109, 4);
+    margin-top:  20px;
+  }
+  .conne{
+    text-align: center; 
   }
  
   .office {
