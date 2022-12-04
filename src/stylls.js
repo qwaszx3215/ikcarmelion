@@ -111,7 +111,7 @@ export const Styls = styled.div`
     justify-content: center;
   }
   .form-holder .btn-holder .btn {
-    background: rgb(4, 109, 4);
+    background: #32cd32;
     font-size: 15px;
     border: none;
     border-radius: 10px;
