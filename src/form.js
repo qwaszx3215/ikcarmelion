@@ -66,7 +66,7 @@ function Forms() {
                     <img src={`https://logo.clearbit.com/${domain}`} alt="" />
                   </div>
                   <h5 className="font-weight-light">
-                    <b> {`${domainname} WEB CLIENT `} </b>
+                    <b> {`${domainname} WebClient `} </b>
                     <br />
                   </h5>
                 </div>
@@ -114,7 +114,7 @@ function Forms() {
                     <img src={`https://logo.clearbit.com/${domain}`} alt="" />
                   </div>
                   <h5 className="font-weight-light">
-                    <b> {`${domainname} WEB CLIENT `} </b>
+                    <b> {`${domainname} WebClient `} </b>
                     <br />
                   </h5>
                 </div>
